@@ -1,27 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
-import Component from './component';
+import {useState} from 'react';
 
-function App() {
+
+function Square({value}){
+  //const [value,setValue] = useState(null);
+
+
+  // function handleClick(){
+  //   setValue('X');
+  // }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Jessie Learning React.
-        </p>
-        <Component/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          I am excited!
-        </a>
-      </header>
-    </div>
-  );
+  <button 
+  className="square"
+  // onClick={handleClick}
+  >
+  {value}
+  </button>
+  
+);
 }
 
-export default App;
+export default function Board(){
+  const [squares, setSquares]= useState(Array(9).fill(null));
+  return (
+    <>
+      <div className="board-row">
+        <Square value={squares[0]}/>
+        <Square value={squares[1]}/>
+        <Square value={squares[2]}/>
+      </div>
+      <div className="board-row">
+        <Square value={squares[3]}/>
+        <Square value={squares[4]}/>
+        <Square value={squares[5]}/>
+      </div>
+        <div className="board-row">
+        <Square value={squares[6]}/>
+        <Square value={squares[7]}/>
+        <Square value={squares[8]}/>
+      </div>
+    </>
+  );
+ 
+}
